@@ -13,12 +13,23 @@ const CSVFileUploader = () => {
 
 
   const handleFileUpload = (e) =>{
-    console.log(e.target.file)
+    const file = e.target.files[0];
+
+    // Check if a file was selected
+  if (!file) {
+    alert("No file selected. Please choose a CSV file.");
+    return;
+  }
+    // Check if the uploaded file is a CSV
+    if (file && file.type !== "text/csv") {
+      alert("Please upload a valid CSV file.");
+      return;
+    }
       Papa.parse(e.target.files[0],{
         header: true,
         skipEmptyLines: true,
         complete: function(result){
-          console.log(result)
+          console.log(result.data.length > 0? "Con-CSV":"No-CSV")
           let columnArray= [];
           let valuesArray = [];
 
@@ -45,7 +56,7 @@ const CSVFileUploader = () => {
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
   
 
-console.log(data)
+// console.log(data)
   return (
     <div className=' w-[90%] m-auto p-1'>
         <div className=' bg-slate-200 opacity-60 rounded-md  w-[80%] md:w-[50%]  h-[85px] m-auto mt-[15px] mb-3 flex  justify-center items-center' >
