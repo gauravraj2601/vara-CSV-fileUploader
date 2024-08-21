@@ -21,11 +21,15 @@ const CSVFileUploader = () => {
           console.log(result)
           let columnArray= [];
           let valuesArray = [];
-          result.data.map((el)=>{
-            columnArray.push(Object.keys(el));
-            valuesArray.push(Object.values(el));
-          })
-          setColumnKeys(columnArray[0]);
+
+          result.data.forEach((el, index) => {
+            //  unique ID 
+            const uniqueId = `${Date.now()}-${index}`;
+            // Add the unique ID along with the row data
+            valuesArray.push({ id: uniqueId, data: Object.values(el) });
+            columnArray = Object.keys(el);
+          });
+          setColumnKeys(columnArray); 
           setValues(valuesArray);
           setData(result.data);
         }
@@ -44,16 +48,18 @@ const CSVFileUploader = () => {
 console.log(data)
   return (
     <div className=' w-[90%] m-auto p-1'>
-        <div className=' bg-slate-200 bg-transparent opacity-50 rounded-md  w-[80%] md:w-[50%]  h-[100px] m-auto mt-[20px] mb-3 flex  justify-center items-center' >
+        <div className=' bg-slate-200 bg-transparent opacity-50 rounded-md  w-[80%] md:w-[50%]  h-[85px] m-auto mt-[15px] mb-3 flex  justify-center items-center' >
             <input  type="file" accept='.csv' onChange={handleFileUpload} />
         </div>
         <TableComponent columnKeys={columnKeys} values={currentValues} />
-        <Pagination 
+        {data.length > 0 && (
+          <Pagination 
           rowsPerPage={rowsPerPage}
           totalRows={values.length}
           paginate={paginate}
           currentPage={currentPage}
         />
+        )}
     </div>
   )
 }

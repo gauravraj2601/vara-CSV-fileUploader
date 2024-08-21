@@ -4,7 +4,7 @@ import CSVFileUploader from './components/CSVFileUploader';
 function App() {
   return (
     <div className="App">
-          <h1 className='font-serif text-[28px] shadow-md' > CSV File</h1>
+          <h1 className='font-serif text-[25px] shadow-md p-[8px]'  > Smart CSV </h1>
           <CSVFileUploader />
     </div>
   );
