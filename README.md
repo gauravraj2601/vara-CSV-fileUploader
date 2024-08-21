@@ -5,6 +5,9 @@
 
 ![Smart CSV](https://github.com/user-attachments/assets/78b10e23-9dd1-4b8e-91b3-7d6635edd938)
 
+## Technology Stack
+- React: For building the user interface.
+- Tailwind CSS: For styling and responsive design.
 ## Installation Process
 To set up the project locally, follow these steps:
 
