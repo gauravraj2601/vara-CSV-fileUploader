@@ -48,7 +48,7 @@ const CSVFileUploader = () => {
 console.log(data)
   return (
     <div className=' w-[90%] m-auto p-1'>
-        <div className=' bg-slate-200 bg-transparent opacity-50 rounded-md  w-[80%] md:w-[50%]  h-[85px] m-auto mt-[15px] mb-3 flex  justify-center items-center' >
+        <div className=' bg-slate-200 opacity-60 rounded-md  w-[80%] md:w-[50%]  h-[85px] m-auto mt-[15px] mb-3 flex  justify-center items-center' >
             <input  type="file" accept='.csv' onChange={handleFileUpload} />
         </div>
         <TableComponent columnKeys={columnKeys} values={currentValues} />
