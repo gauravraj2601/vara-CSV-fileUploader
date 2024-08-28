@@ -5,6 +5,8 @@
 
 ![Smart CSV](https://github.com/user-attachments/assets/78b10e23-9dd1-4b8e-91b3-7d6635edd938)
 
+[CSV File dwld link](https://www.kaggle.com/datasets/imdevskp/corona-virus-report)
+
 ## Technology Stack
 - React: For building the user interface.
 - Tailwind CSS: For styling and responsive design.
